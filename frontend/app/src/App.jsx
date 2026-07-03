@@ -7,9 +7,11 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [secretData, setSecretData] = useState(null);
 
+  const API_URL = "https://jwt-back-u6it.onrender.com";
+
   async function login() {
     try {
-      const response = await axios.post("https://jwt-back-u6it.onrender.com/login", {
+      const response = await axios.post(`${API_URL}/login`, {
         email: email,
         password: password,
       });
@@ -29,7 +31,7 @@ function App() {
     try {
       const savedToken = localStorage.getItem("token");
 
-      const response = await axios.get("https://jwt-back-u6it.onrender.com/secret", {
+      const response = await axios.get(`${API_URL}/secret`, {
         headers: {
           Authorization: `Bearer ${savedToken}`,
         },
