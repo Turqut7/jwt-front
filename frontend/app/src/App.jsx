@@ -9,7 +9,7 @@ function App() {
 
   async function login() {
     try {
-      const response = await axios.post("http://localhost:4000/login", {
+      const response = await axios.post("https://jwt-back-u6it.onrender.com/login", {
         email: email,
         password: password,
       });
@@ -29,7 +29,7 @@ function App() {
     try {
       const savedToken = localStorage.getItem("token");
 
-      const response = await axios.get("http://localhost:4000/secret", {
+      const response = await axios.get("https://jwt-back-u6it.onrender.com/secret", {
         headers: {
           Authorization: `Bearer ${savedToken}`,
         },
